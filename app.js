@@ -49,6 +49,19 @@ app.get("/blogs/new",(req,res) =>{
     res.render("new");
 });
 
+//CREATE ROUTE
+app.post("/blogs",(req,res) =>{
+    //create a new blog
+    Blog.create(req.body.blog,(err,newBlog) =>{
+        if(err){
+            res.render("new");
+        }else{
+            //redirect to index
+            res.redirect("/blogs");
+        }
+    });
+});
+
 const port = 3000;
 app.listen(port ,() => {
     console.log(`Server started at port ${port}`);

@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 });
 //RESTFUL  ROUTES
 
-
+//INDEX ROUTE
 app.get("/blogs",function(req,res){
     Blog.find({},function(err,blogs){
         if(err){
@@ -42,6 +42,11 @@ app.get("/blogs",function(req,res){
         }
     });
      
+});
+
+//NEW ROUTE
+app.get("/blogs/new",(req,res) =>{
+    res.render("new");
 });
 
 const port = 3000;

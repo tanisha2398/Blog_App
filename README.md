@@ -1,0 +1,1 @@
+this is a blogging app created using node.js, express.js and semantic UI

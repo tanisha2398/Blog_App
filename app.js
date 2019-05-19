@@ -62,6 +62,17 @@ app.post("/blogs",(req,res) =>{
     });
 });
 
+//Show Route
+app.get("/blogs/:id",(req,res) =>{
+    Blog.findById(req.params.id,(err,foundBlog)=>{
+        if(err){
+            res.redirect("/blogs");
+        }else{
+            res.render("show",{blog:foundBlog});
+        }
+    });
+});
+
 const port = 3000;
 app.listen(port ,() => {
     console.log(`Server started at port ${port}`);

@@ -96,6 +96,17 @@ app.put("/blogs/:id",(req,res)=>{
     });
 });
 
+//Delete Route
+app.delete("/blogs/:id",(req,res)=>{
+    Blog.findByIdAndDelete(req.params.id,(err)=>{
+        if(err){
+            res.redirect("/blogs")
+        }else{
+            res.redirect("/blogs")
+        }
+    });
+});
+
 const port = 3000;
 app.listen(port ,() => {
     console.log(`Server started at port ${port}`);
